@@ -1,0 +1,60 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+    @apply bg-cover bg-no-repeat bg-center;
+    background-image: url(./pic/wp12613129-4k-low-poly-wallpapers.jpg);
+    background-position-y: -100px;;
+}
+
+.window {
+    @apply pt-5 bg-white w-1/4 h-[440px] mx-auto rounded-lg mt-10;
+}  
+
+
+
+.hi-img {
+    @apply w-28 rounded-full block mx-auto;
+}
+
+.welcome-create {
+    @apply text-lg font-bold block text-center mt-2 mb-2;
+}
+
+.email-input,
+.password-input,
+.su-name-input,
+.su-email-input,
+.su-password-input {
+  @apply p-1 block border-none rounded-md bg-gray-300 h-9 w-72 mx-auto mt-5;
+}
+
+.email-input:focus,
+.password-input:focus,
+.su-name-input:focus,
+.su-email-input:focus,
+.su-password-input:focus {
+  @apply outline-none ring-2 ring-blue-600;
+}
+
+  
+.remember-input {
+    @apply mr-1;
+}
+
+.remember-div {
+    @apply mx-auto w-1/2 mt-4 text-center text-balance;
+}
+
+.sub-button {
+    @apply w-44 h-11 bg-zinc-400 mx-auto block mt-4 mb-4 hover:bg-zinc-500;
+}
+
+.signup-link-div {
+    @apply text-center text-base;
+}
+
+.signup-text {
+    @apply text-blue-800 underline pl-2 text-base;
+}
