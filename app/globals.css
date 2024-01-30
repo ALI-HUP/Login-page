@@ -1,3 +1,8 @@
+/* @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities'; */
+
+
 body {
   background-image: url(./pic/wp12613129-4k-low-poly-wallpapers.jpg);
   background-repeat: no-repeat;
@@ -11,10 +16,11 @@ body {
   width: 25%;
   height: 440px;
   margin: auto;
-  border-radius: 7%;
+  border-radius: 25px;
   border-style: hidden;
   margin-top: 50px;
 }
+
 
 .hi-img {
   width: 35%;
@@ -26,6 +32,7 @@ body {
   padding-top: 1%;
   /* transform: rotate(30deg); */
 }
+
 
 .welcome-create {
   font-size: 120%;
@@ -42,8 +49,8 @@ body {
   display: block;
   border: none;
   border-radius: 5px;
-  background-color: rgb(194, 187, 187);
-  opacity: 80%;
+  background-color: rgb(201, 200, 200);
+  /* opacity: 80%; */
   height: 30px;
   width: 280px;
   margin: auto;
@@ -57,7 +64,7 @@ body {
   display: block;
   border: none;
   border-radius: 5px;
-  background-color: rgb(194, 187, 187);
+  background-color: rgb(201, 200, 200);
   /* opacity: 80%; */
   height: 30px;
   width: 280px;
@@ -65,6 +72,11 @@ body {
   font-size: medium;
   margin-top: 5%;
 }
+
+.remember-input{
+  margin-right: 2%;
+}
+
 
 .remember-div {
   margin: auto;
@@ -82,7 +94,8 @@ body {
   background-color: rgb(194, 187, 187);
   margin: auto;
   display: block;
-  margin-top: 5%;
+  margin-top: 4%;
+  margin-bottom: 4%;
   font-size: medium;
 }
 
