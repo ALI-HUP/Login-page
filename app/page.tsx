@@ -1,16 +1,13 @@
 "use client"
 
-import React, { ChangeEvent, FormEvent, useState } from "react"
+import React, {ChangeEvent, FormEvent, useState} from "react"
 import Image from "next/image"
 import myImage from "./pic/wp9675652-american-psycho-hd-wallpapers.jpg"
 import Link from "next/link";
 import { useLoginStore } from "./zustand/loginStore";
-// import './globals.css'
-import './tailwind.css'
 
 
-export default function Home(): React.JSX.Element {
-
+export default function page(): React.JSX.Element {
   const { email, password, rememberMe, setEmail, setPassword, setRememberMe } = useLoginStore();
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +21,6 @@ export default function Home(): React.JSX.Element {
   const handleRememberMeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRememberMe(e.target.checked);
   };
-
   
   return (
     <body className="body">

@@ -1,4 +1,3 @@
-"use client"
 
 import React from "react"
 import Image from "next/image"
@@ -6,8 +5,17 @@ import myImage from "../pic/wp9675652-american-psycho-hd-wallpapers.jpg"
 import { useSignupStore } from "../zustand/signupStore"
 
 
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`https://.../data`)
+  const data = await res.json()
+ 
+  // Pass data to the page via props
+  return { props: { data } }
+}
 
-export default function Signup(): React.JSX.Element{
+
+export default function Signup({data}: {data:any}): React.JSX.Element{
 
   const { userName, email, password, setUserName, setEmail, setPassword } = useSignupStore();
 
