@@ -2,14 +2,16 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-body {
-    @apply bg-cover bg-no-repeat bg-center;
-    background-image: url(./pic/wp12613129-4k-low-poly-wallpapers.jpg);
+
+.body {
+    @apply absolute inset-0 w-full h-full bg-cover bg-no-repeat bg-center z-[-1] ;
+    background-image: url('./pic/wp12613129-4k-low-poly-wallpapers.jpg');
     background-position-y: -100px;
+    filter: blur(2px) sepia(35%);
 }
 
 .window {
-    @apply pt-5 bg-white w-1/4 h-[440px] mx-auto rounded-lg mt-10;
+    @apply pt-5 bg-sky-950 w-1/4 h-[440px] mx-auto rounded-lg mt-10;
 }  
 
 
@@ -19,42 +21,34 @@ body {
 }
 
 .welcome-create {
-    @apply text-lg font-bold block text-center mt-2 mb-2;
+    @apply text-lg font-bold block text-center mt-2 mb-2 text-slate-100 ;
 }
+
 
 .email-input,
 .password-input,
 .su-name-input,
 .su-email-input,
 .su-password-input {
-  @apply p-1 block border-none rounded-md bg-gray-300 h-9 w-72 mx-auto mt-5;
-}
-
-.email-input:focus,
-.password-input:focus,
-.su-name-input:focus,
-.su-email-input:focus,
-.su-password-input:focus {
-  @apply outline-none ring-2 ring-blue-600;
-}
-
-  
-.remember-input {
-    @apply mr-1;
+  @apply h-9 w-72 mx-auto mt-5 mb-5 hover:bg-slate-300 rounded-sm;
 }
 
 .remember-div {
-    @apply mx-auto w-1/2 mt-4 text-center text-balance;
+    @apply mx-auto w-1/2 -mt-3 text-center text-balance text-slate-100;
+}
+
+.button{
+    @apply mt-2 mb-4 flex justify-center items-center;
 }
 
 .sub-button {
-    @apply w-44 h-11 bg-zinc-400 mx-auto block mt-4 mb-4 hover:bg-zinc-500;
+    @apply w-44 h-11 bg-blue-500  block ;
 }
 
 .signup-link-div {
-    @apply text-center text-base;
+    @apply text-center text-base text-white;
 }
 
 .signup-text {
-    @apply text-blue-800 underline pl-2 text-base;
+    @apply text-blue-300 underline pl-2 text-base;
 }

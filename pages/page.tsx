@@ -72,7 +72,7 @@ export default function Page({ data }: {data: any}): React.JSX.Element {
             </label>
           </div>
 
-          <button className="sub-button">Submit</button>
+          <button className="sub-button" type="submit">Submit</button>
         </form>
 
         <div className="signup-link-div">
