@@ -1,7 +1,6 @@
 "use client"
 
-
-import React, {ChangeEvent, FormEvent, useState} from "react";
+import React from "react";
 import Image from "next/image";
 import myImage from "./pic/wp9675652-american-psycho-hd-wallpapers.jpg";
 import Link from "next/link";
@@ -10,7 +9,8 @@ import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Input from '@mui/joy/Input';
-
+import Key from '@mui/icons-material/Key';
+import EmailIcon from '@mui/icons-material/Email';
 
 
 
@@ -28,13 +28,12 @@ export default function page(): React.JSX.Element {
   const handleRememberMeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRememberMe(e.target.checked);
   };
-  
 
 
   return (
     <body>
 
-        <div className="body"></div>
+      <div className="bg-img"></div>
 
       <div className="window">
 
@@ -42,85 +41,53 @@ export default function page(): React.JSX.Element {
             <span className="welcome-create">
               Login form
             </span>
-            
 
-            <form className="email-div" action="" method="">
 
-                <Input
+            <form className="form-tag" action="" method="">
+
+                <Input 
                     placeholder="Email"
-                        className="email-input"
-                        variant="soft"
-                        type="email"
-                        name="email" 
-                        required 
-                        value={email} 
-                        onChange={handleEmailChange}
-                        sx={{
-                          '--Input-radius': '0px',
-                          borderBottom: '2px solid',
-                          borderColor: 'neutral.outlinedBorder',
-                          '&:hover': {
-                            borderColor: 'neutral.outlinedHoverBorder',
-                          },
-                          '&::before': {
-                            border: '1px solid var(--Input-focusedHighlight)',
-                            transform: 'scaleX(0)',
-                            left: 0,
-                            right: 0,
-                            bottom: '-2px',
-                            top: 'unset',
-                            transition: 'transform .15s cubic-bezier(0.1,0.9,0.2,1)',
-                            borderRadius: 0,
-                          },
-                          '&:focus-within::before': {
-                            transform: 'scaleX(1)',
-                          },
-                    }}
+                    className="input"
+                    type="email"
+                    name="email" 
+                    required 
+                    value={email} 
+                    onChange={handleEmailChange}
+                    startDecorator={<EmailIcon fontSize="small"/>}
                 />
+
 
                 <Input
                     placeholder="Password"
-                        className="password-input"
-                        variant="soft"
-                        type="password"
-                        name="password" 
-                        required 
-                        value={password} 
-                        onChange={handlePasswordChange}
-                        sx={{
-                          '--Input-radius': '0px',
-                          borderBottom: '2px solid',
-                          borderColor: 'neutral.outlinedBorder',
-                          '&:hover': {
-                            borderColor: 'neutral.outlinedHoverBorder',
-                          },
-                          '&::before': {
-                            border: '1px solid var(--Input-focusedHighlight)',
-                            transform: 'scaleX(0)',
-                            left: 0,
-                            right: 0,
-                            bottom: '-2px',
-                            top: 'unset',
-                            transition: 'transform .15s cubic-bezier(0.1,0.9,0.2,1)',
-                            borderRadius: 0,
-                          },
-                          '&:focus-within::before': {
-                            transform: 'scaleX(1)',
-                          },
-                    }}
+                    className="input"
+                    type="password"
+                    name="password" 
+                    required 
+                    value={password} 
+                    onChange={handlePasswordChange}
+                    startDecorator={<Key fontSize="small"/>}
                 />
 
-                <div className="remember-div">
-                    <FormControlLabel control={ <Checkbox checked={rememberMe} onChange={handleRememberMeChange}/> } 
-                    label="Remember me" className="remember-label"/>
-                </div>
+
+                  <div className="remember-div">
+                      <FormControlLabel control={ <Checkbox checked={rememberMe} onChange={handleRememberMeChange}/> } 
+                      label="Remember me" className="remember-label"/>
+                  </div>
 
 
-                <div className="button">
-                    <Button variant="contained" className="sub-button" type="submit">
-                        Submit
-                    </Button>
-                </div>
+                  <div className="button-div">
+                    
+                      <Button variant="contained" className="sub-button" type="submit">
+                          Submit
+                      </Button>
+
+                      <Button variant="contained" className="forgot-button">
+                          <Link href="/forgot" className="forgot-pass-text">
+                            forgot password
+                          </Link>
+                      </Button>
+
+                  </div>
                     
             </form>
 

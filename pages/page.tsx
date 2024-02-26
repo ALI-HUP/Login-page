@@ -1,90 +1,105 @@
-import React, { ChangeEvent } from "react";
+import React, {ChangeEvent, FormEvent, useState} from "react";
 import Image from "next/image";
 import myImage from "./pic/wp9675652-american-psycho-hd-wallpapers.jpg";
 import Link from "next/link";
 import { useLoginStore } from "./zustand/loginStore";
+import Button from '@mui/material/Button';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Input from '@mui/joy/Input';
+import Key from '@mui/icons-material/Key';
+import EmailIcon from '@mui/icons-material/Email';
 
 
 export async function getServerSideProps() {
-  // Fetch data from external API
+
   const res = await fetch(`https://.../data`)
   const data = await res.json()
- 
-  // Pass data to the page via props
   return { props: { data } }
+
 }
 
 
-
-export default function Page({ data }: {data: any}): React.JSX.Element {
+export default function page(): React.JSX.Element {
   const { email, password, rememberMe, setEmail, setPassword, setRememberMe } = useLoginStore();
 
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
   };
 
-  const handleRememberMeChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleRememberMeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRememberMe(e.target.checked);
   };
 
+
   return (
-    <body className="body">
+    <body>
+
+      <div className="bg-img"></div>
+
       <div className="window">
-        <Image src={myImage} alt="Description" className="hi-img" />
-        <span className="welcome-create">Login form</span>
 
-        <form className="email-div" action="" method="">
-          <input
-            type="email"
-            className="email-input"
-            title="Please enter a valid email address"
-            placeholder="Email"
-            name="email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
-          <input
-            type="password"
-            className="password-input"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
+            <Image src={myImage} alt="Description" className="hi-img"/>
+            <span className="welcome-create">
+              Login form
+            </span>
 
-          <div className="remember-div">
-            <input
-              type="checkbox"
-              className="remember-input"
-              id="remember-me"
-              name="remember-me"
-              checked={rememberMe}
-              onChange={handleRememberMeChange}
-            />
-            <label htmlFor="remember-me" className="remember-label">
-              Remember me
-            </label>
+
+            <form className="email-div" action="" method="">
+
+              <Input 
+                  placeholder="Email"
+                  className="input"
+                  type="email"
+                  name="email" 
+                  required 
+                  value={email} 
+                  onChange={handleEmailChange}
+                  startDecorator={<EmailIcon fontSize="small"/>}
+              />
+
+
+              <Input
+                  placeholder="Password"
+                  className="input"
+                  type="password"
+                  name="password" 
+                  required 
+                  value={password} 
+                  onChange={handlePasswordChange}
+                  startDecorator={<Key fontSize="small"/>}
+              />
+
+
+                <div className="remember-div">
+                    <FormControlLabel control={ <Checkbox checked={rememberMe} onChange={handleRememberMeChange}/> } 
+                    label="Remember me" className="remember-label"/>
+                </div>
+
+
+                <div className="button-div">
+                    <Button variant="contained" className="sub-button" type="submit">
+                        Submit
+                    </Button>
+                </div>
+                    
+            </form>
+
+
+          <div className="signup-link-div">
+            <p>Don't have an account?? 
+              <Link href="/signUp" className="signup-text">
+                   Sign up
+              </Link>
+            </p>
           </div>
 
-          <button className="sub-button" type="submit">Submit</button>
-        </form>
 
-        <div className="signup-link-div">
-          <p>
-            Don't have an account??
-            <Link href="/signUp" className="signup-text">
-              Sign up
-            </Link>
-          </p>
-        </div>
       </div>
     </body>
-  );
+  )
 }
-
