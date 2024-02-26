@@ -1,5 +1,3 @@
-"use client"
-
 import React from "react";
 import Image from "next/image";
 import myImage from "../pic/wp9675652-american-psycho-hd-wallpapers.jpg";
@@ -13,8 +11,16 @@ import Person from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 
 
+export async function getServerSideProps() {
 
-export default function Signup(): React.JSX.Element {
+  const res = await fetch(`https://.../data`)
+  const data = await res.json()
+  return { props: { data } }
+
+}
+
+
+export default function Signup({data}: {data:any}): React.JSX.Element{
 
     const { userName, email, password, setUserName, setEmail, setPassword } = useSignupStore();
 
@@ -28,6 +34,7 @@ export default function Signup(): React.JSX.Element {
 
     const handleCombinedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
+
       setValue(newValue);
       setPassword(newValue);
     };
@@ -36,6 +43,7 @@ export default function Signup(): React.JSX.Element {
   const minLength = 12;
 
   
+
   return (
     <body>
       
@@ -50,7 +58,7 @@ export default function Signup(): React.JSX.Element {
         </span>
 
 
-        <form className="form-tag" action="" method="">
+        <form className="signup-inputs" action="" method="">
 
               <Input 
                   placeholder="User name"

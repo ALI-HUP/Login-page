@@ -1,19 +1,19 @@
 import {create} from 'zustand';
 
-interface SignupState {
-  userName: string;
+interface LoginState {
   email: string;
   password: string;
-  setUserName: (userName: string) => void;
+  rememberMe: boolean;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
+  setRememberMe: (rememberMe: boolean) => void;
 }
 
-export const useSignupStore = create<SignupState>((set) => ({
-  userName: '',
+export const useLoginStore = create<LoginState>((set) => ({
   email: '',
   password: '',
-  setUserName: (userName) => set({ userName }),
+  rememberMe: false,
   setEmail: (email) => set({ email }),
   setPassword: (password) => set({ password }),
+  setRememberMe: (rememberMe) => set({ rememberMe }),
 }));
