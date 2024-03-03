@@ -34,7 +34,6 @@ export default function Signup({data}: {data:any}): React.JSX.Element{
 
     const handleCombinedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
-
       setValue(newValue);
       setPassword(newValue);
     };
@@ -58,7 +57,7 @@ export default function Signup({data}: {data:any}): React.JSX.Element{
         </span>
 
 
-        <form className="signup-inputs" action="" method="">
+        <form className="form-tag" action="" method="">
 
               <Input 
                   placeholder="User name"
