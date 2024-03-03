@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEvent, FormEvent, useState} from "react";
 import Image from "next/image";
 import myImage from "./pic/wp9675652-american-psycho-hd-wallpapers.jpg";
 import Link from "next/link";
@@ -20,7 +20,7 @@ export async function getServerSideProps() {
 }
 
 
-export default function page({data}: {data:any}): React.JSX.Element {
+export default function page(): React.JSX.Element {
   const { email, password, rememberMe, setEmail, setPassword, setRememberMe } = useLoginStore();
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +36,6 @@ export default function page({data}: {data:any}): React.JSX.Element {
   };
 
 
-
   return (
     <body>
 
@@ -50,51 +49,43 @@ export default function page({data}: {data:any}): React.JSX.Element {
             </span>
 
 
-            <form className="form-tag" action="" method="">
+            <form className="email-div" action="" method="">
 
-                <Input 
-                    placeholder="Email"
-                    className="input"
-                    type="email"
-                    name="email" 
-                    required 
-                    value={email} 
-                    onChange={handleEmailChange}
-                    startDecorator={<EmailIcon fontSize="small"/>}
-                />
-
-
-                <Input
-                    placeholder="Password"
-                    className="input"
-                    type="password"
-                    name="password" 
-                    required 
-                    value={password} 
-                    onChange={handlePasswordChange}
-                    startDecorator={<Key fontSize="small"/>}
-                />
+              <Input 
+                  placeholder="Email"
+                  className="input"
+                  type="email"
+                  name="email" 
+                  required 
+                  value={email} 
+                  onChange={handleEmailChange}
+                  startDecorator={<EmailIcon fontSize="small"/>}
+              />
 
 
-                  <div className="remember-div">
-                      <FormControlLabel control={ <Checkbox checked={rememberMe} onChange={handleRememberMeChange}/> } 
-                      label="Remember me" className="remember-label"/>
-                  </div>
+              <Input
+                  placeholder="Password"
+                  className="input"
+                  type="password"
+                  name="password" 
+                  required 
+                  value={password} 
+                  onChange={handlePasswordChange}
+                  startDecorator={<Key fontSize="small"/>}
+              />
 
 
-                  <div className="button-div">
-                    
-                      <Button variant="contained" className="sub-button" type="submit">
-                          Submit
-                      </Button>
+                <div className="remember-div">
+                    <FormControlLabel control={ <Checkbox checked={rememberMe} onChange={handleRememberMeChange}/> } 
+                    label="Remember me" className="remember-label"/>
+                </div>
 
-                      <Button variant="contained" className="forgot-button">
-                          <Link href="/forgot" className="forgot-pass-text">
-                            forgot password
-                          </Link>
-                      </Button>
 
-                  </div>
+                <div className="button-div">
+                    <Button variant="contained" className="sub-button" type="submit">
+                        Submit
+                    </Button>
+                </div>
                     
             </form>
 
